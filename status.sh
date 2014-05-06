@@ -7,7 +7,6 @@ for script in components/*.sh; do
     if [ -x $script ]; then
         msg=`./$script`
         status=$?
-        echo $script
         if [ $status -gt 0 ]; then
             red "$msg"
         else
@@ -20,7 +19,6 @@ unset script
 # TODO
 
 # ems
-# submitit
 # postfix
 # jz-backend
 # cake-redux
