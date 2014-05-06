@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-source common.sh
+. common.sh
 
 check_curl_status "http://127.0.0.1:8080" "SUBMITIT"

@@ -20,5 +20,4 @@ unset script
 
 # ems
 # postfix
-# jz-backend
 # cake-redux
