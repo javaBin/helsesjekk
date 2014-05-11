@@ -15,7 +15,7 @@ if not os.path.exists(log):
 
 else:
     with open(log, 'r') as logfile:
-        line = logfile.readline()
+        line = logfile.readlines()[-1]
 
     date, tag, commit = line.strip().split(" ")
     print "Last provisioned: %s" % date
