@@ -5,7 +5,7 @@ status=$?
 
 if [ $status -gt 0 ]; then
     echo "Unable to connect"
-else
+elif [ -n "$pid" ]; then
     echo "Running with pid $pid"
 fi
 

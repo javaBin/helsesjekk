@@ -14,7 +14,9 @@ gather_local() {
             else
                 green "$component"
             fi
-            echo $msg | sed 's/^/  /'
+            if [[ -n $msg ]]; then
+                echo $msg | sed 's/^/  /'
+            fi
         fi
     done
     unset component msg status script
