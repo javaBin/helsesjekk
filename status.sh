@@ -4,7 +4,7 @@ green() { echo -e "\033[32m$1\033[0m"; }
 red() { echo -e "\033[31m$1\033[0m"; }
 
 gather_local() {
-    for script in components/*.sh; do
+    for script in components/*.*; do
         if [ -x $script ]; then
             component=`basename $script | cut -d'.' --complement -f2- | tr '[:lower:]' '[:upper:]'`
             msg=`./$script`
@@ -42,8 +42,6 @@ if [ "$1" ]; then
 else
     gather_local
 fi
-
-# TODO
 
 # ems
 # postfix
