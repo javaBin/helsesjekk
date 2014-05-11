@@ -19,8 +19,13 @@ else:
         line = logfile.readlines()[-1]
 
     date_string, tag, commit = line.strip().split(" ")
-    date = parser.parse(date_string)
-    print "Last provisioned: %s" % date.strftime("%d.%m.%Y %H:%M")
+    try:
+        date = parser.parse(date_string)
+        date_string = date.strftime("%d.%m.%Y %H:%M")
+    except:
+        pass
+
+    print "Last provisioned: %s" % date_string
     print "Commit: %s" % commit
 
     data = loads(urlopen("https://api.github.com/repos/javaBin/infrastructure/commits/HEAD").read())
