@@ -8,5 +8,6 @@ if [[ ! -f "$LOG" ]]; then
 else
     DATE=`tail -1 $LOG | cut -d" " -f1`
     COMMIT=`tail -1 $LOG | cut -d" " -f3`
-    echo "Last provisioned $DATE (commit $COMMIT)"    
+    echo "Last provisioned: $DATE"
+    echo "Commit: $COMMIT"    
 fi

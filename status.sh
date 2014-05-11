@@ -15,7 +15,7 @@ gather_local() {
                 green "$component"
             fi
             if [[ -n $msg ]]; then
-                echo $msg | sed 's/^/  /'
+                echo "$msg" | sed 's/^/  /'
             fi
         fi
     done
