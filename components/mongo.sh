@@ -4,9 +4,9 @@ pid="$(mongo --quiet --eval 'db.serverStatus().pid;' 2>details/MONGO.log)"
 status=$?
 
 if [ $status -gt 0 ]; then
-    echo "MONGO is down"
+    echo "Unable to connect"
 else
-    echo "MONGO is up (pid $pid)"
+    echo "Running with pid $pid"
 fi
 
 exit $status

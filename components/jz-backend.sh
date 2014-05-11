@@ -2,4 +2,4 @@
 
 . common.sh
 
-check_curl_status "http://127.0.0.1/api/ping" "BACKEND"
+check_curl_status "http://127.0.0.1/api/ping"
