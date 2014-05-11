@@ -37,6 +37,17 @@ gather_remote() {
     exit $?
 }
 
+update_from_git() {
+    local_commit=`git log -n 1 --pretty=format:"%H"`
+    remote_commit=`git ls-remote origin | grep HEAD | cut -f 1`
+
+    if [[ $local_commit != $remote_commit ]]; then
+        echo "Repository is behind, updating from GitHub..."
+        git pull
+    fi
+}
+
+update_from_git
 if [ "$1" ]; then
     gather_remote $1
 else
