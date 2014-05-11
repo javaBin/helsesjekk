@@ -5,6 +5,7 @@ import os.path
 from json import loads
 import os
 from urllib2 import urlopen
+from dateutil import parser
 
 log = "%(HOME)s/.provision/provision.log" % os.environ
 
@@ -17,8 +18,9 @@ else:
     with open(log, 'r') as logfile:
         line = logfile.readlines()[-1]
 
-    date, tag, commit = line.strip().split(" ")
-    print "Last provisioned: %s" % date
+    date_string, tag, commit = line.strip().split(" ")
+    date = parser.parse(date_string)
+    print "Last provisioned: %s" % date.strftime("%d.%m.%Y %H:%M")
     print "Commit: %s" % commit
 
     data = loads(urlopen("https://api.github.com/repos/javaBin/infrastructure/commits/HEAD").read())
