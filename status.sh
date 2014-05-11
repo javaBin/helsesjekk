@@ -51,9 +51,9 @@ update_from_git
 if [ "$1" ]; then
     gather_remote $1
 else
+    echo
     gather_local
 fi
 
-# ems
 # postfix
 # cake-redux
