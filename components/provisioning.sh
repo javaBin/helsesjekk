@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
-DATE=`tail -1 ~/.provision/provision.log | cut -d" " -f1`
-COMMIT=`tail -1 ~/.provision/provision.log | cut -d" " -f3`
+LOG="$HOME/.provision/provision.log"
 
-echo "PROVISIONED last $DATE (commit $COMMIT)"
+if [[ ! -f "$LOG" ]]; then
+    echo "PROVISION log not found"
+    exit 1
+else
+    DATE=`tail -1 $LOG | cut -d" " -f1`
+    COMMIT=`tail -1 $LOG | cut -d" " -f3`
+    echo "PROVISIONED last $DATE (commit $COMMIT)"    
+fi
