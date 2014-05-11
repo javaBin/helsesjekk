@@ -23,6 +23,7 @@ else:
         date = parser.parse(date_string)
         date_string = date.strftime("%d.%m.%Y %H:%M")
     except:
+        # whatever, we'll just use the date as is
         pass
 
     print "Last provisioned: %s" % date_string
@@ -33,4 +34,4 @@ else:
 
     if remote_commit != commit:
         print "Might not be up to date! (Latest on GitHub is %s)" % remote_commit
-        sys.exit(1)
+
