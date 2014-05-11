@@ -43,7 +43,7 @@ update_from_git() {
 
     if [[ $local_commit != $remote_commit ]]; then
         echo "Repository is behind, updating from GitHub..."
-        git pull
+        git pull -q
     fi
 }
 
