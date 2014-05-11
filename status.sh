@@ -3,7 +3,7 @@
 green() { echo -e "\033[32m$1\033[0m"; }
 red() { echo -e "\033[31m$1\033[0m"; }
 
-gather_locally() {
+gather_local() {
     for script in components/*.sh; do
         if [ -x $script ]; then
             msg=`./$script`
@@ -36,7 +36,7 @@ gather_remote() {
 if [ "$1" ]; then
     gather_remote $1
 else
-    gather_locally
+    gather_local
 fi
 
 # TODO

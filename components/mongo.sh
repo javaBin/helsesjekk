@@ -6,7 +6,7 @@ status=$?
 if [ $status -gt 0 ]; then
     echo "MONGO is down"
 else
-    echo "MONGO running with pid $pid"
+    echo "MONGO is up (pid $pid)"
 fi
 
 exit $status
