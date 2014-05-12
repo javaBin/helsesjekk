@@ -9,7 +9,6 @@ from dateutil import parser
 
 log = "%(HOME)s/.provision/provision.log" % os.environ
 
-
 if not os.path.exists(log):
     print "Could not find log at %s" % log
     sys.exit(1)
@@ -34,4 +33,3 @@ else:
 
     if remote_commit != commit:
         print "Might not be up to date! (Latest on GitHub is %s)" % remote_commit
-

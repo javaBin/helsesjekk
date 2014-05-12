@@ -38,10 +38,11 @@ gather_remote() {
 }
 
 update_from_git() {
-    local_commit=`git log -n 1 --pretty=format:"%H"`
-    remote_commit=`git ls-remote origin | grep HEAD | cut -f 1`
+    echo "Checking for script updates..."
+    git remote update >/dev/null
+    behind=`git status --untracked-files=no | grep 'Your branch is behind'`
 
-    if [[ $local_commit != $remote_commit ]]; then
+    if [[ -n $behind ]]; then
         echo "Repository is behind, updating from GitHub..."
         git pull -q
     fi
