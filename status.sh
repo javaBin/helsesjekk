@@ -32,7 +32,7 @@ gather_remote() {
         exit 1
     fi
 
-    echo "Status for: $host"
+    echo "Fetching status from $host"
     ssh $host "cd helsesjekk && ./status.sh"
     exit $?
 }
@@ -56,5 +56,8 @@ else
     gather_local
 fi
 
-# postfix
-# cake-redux
+# TODO
+# make checks for
+#
+#   - postfix
+#   - cake-redux
