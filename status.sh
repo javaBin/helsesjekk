@@ -45,6 +45,8 @@ update_from_git() {
     if [[ -n $behind ]]; then
         echo "Repository is behind, updating from GitHub..."
         git pull -q
+    else
+        echo "Already up to date."
     fi
 }
 
