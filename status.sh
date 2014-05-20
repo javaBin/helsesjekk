@@ -6,7 +6,8 @@ red() { echo -e "\033[31m$1\033[0m"; }
 gather_local() {
     for script in components/*.*; do
         if [ -x $script ]; then
-            component=`basename $script | cut -d'.' --complement -f2- | tr '[:lower:]' '[:upper:]'`
+            #component=`basename $script | cut -d'.' --complement -f2- | tr '[:lower:]' '[:upper:]'`
+            component=`basename $script | rev | cut -d"." -f2- | rev | tr '[:lower:]' '[:upper:]'`
             msg=`./$script`
             status=$?
             if [ $status -gt 0 ]; then
