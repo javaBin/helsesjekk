@@ -4,6 +4,7 @@ green() { echo -e "\033[32m$1\033[0m"; }
 red() { echo -e "\033[31m$1\033[0m"; }
 
 gather_local() {
+    total_status=0
     for script in components/*.*; do
         if [ -x ${script} ]; then
             #component=`basename ${script} | cut -d'.' --complement -f2- | tr '[:lower:]' '[:upper:]'`
@@ -18,9 +19,11 @@ gather_local() {
             if [[ -n ${msg} ]]; then
                 echo "${msg}" | sed 's/^/  /'
             fi
+            total_status=$(($status + $total_status))
         fi
     done
     unset component msg status script
+    exit $total_status
 }
 
 gather_remote() {
