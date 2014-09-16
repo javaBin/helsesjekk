@@ -26,7 +26,7 @@ Lag en ny fil i `components/`. Denne kan være skrevet i hva du vil, men må opp
 
 - Filen må være eksekverbar.
 - Hvis komponenten som testes er oppe skal returnert statuskode være `0`. Returkode høyere enn `0` indikerer at noe er galt.
-- Eventuell informasjon (engen komponenten er oppe eller nede) skrives til `stdout`.
+- Eventuell informasjon (enten komponenten er oppe eller nede) skrives til `stdout`.
 
 Helsesjekken skal nå oppdage den nye testen og kjøre denne med de andre. Ved å pushe til GitHub vil testen oppdages ved neste kjøring i test/prod.
 
