@@ -11,14 +11,18 @@ Helsesjekk kan også kjøres fra kommandolinja:
 
 ## Oppsett
 
-Installer `python` for å kjøre testene som trenger dette. Du trenger også `pip` for å dra inn følgende pakker:
+Installer følgende:
 
-- `pip install requests`
-- `pip install python-dateutil`
+```
+sudo apt-get install python python-pip
+sudo pip install requests
+sudo pip install python-dateutil
+sudo apt-get install nodejs
+```
 
-For å kjøre opp serveren må `nodejs` være installert.
+…eller tilsvarende på andre OS.
 
-Hvis du lager noe som krever andre ting, før det opp her.
+Hvis du legger til noe med ytterligere avhengigheter, før det opp her.
 
 ## Hvordan lager jeg en ny test?
 
