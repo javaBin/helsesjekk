@@ -5,18 +5,18 @@ red() { echo -e "\033[31m$1\033[0m"; }
 
 gather_local() {
     for script in components/*.*; do
-        if [ -x $script ]; then
-            #component=`basename $script | cut -d'.' --complement -f2- | tr '[:lower:]' '[:upper:]'`
-            component=`basename $script | rev | cut -d"." -f2- | rev | tr '[:lower:]' '[:upper:]'`
-            msg=`./$script`
+        if [ -x ${script} ]; then
+            #component=`basename ${script} | cut -d'.' --complement -f2- | tr '[:lower:]' '[:upper:]'`
+            component=`basename ${script} | rev | cut -d"." -f2- | rev | tr '[:lower:]' '[:upper:]'`
+            msg=`./${script}`
             status=$?
             if [ $status -gt 0 ]; then
-                red "$component"
+                red "${component}"
             else
-                green "$component"
+                green "${component}"
             fi
-            if [[ -n $msg ]]; then
-                echo "$msg" | sed 's/^/  /'
+            if [[ -n ${msg} ]]; then
+                echo "${msg}" | sed 's/^/  /'
             fi
         fi
     done
@@ -33,8 +33,8 @@ gather_remote() {
         exit 1
     fi
 
-    echo "Fetching status from $host"
-    ssh $host "cd helsesjekk && ./status.sh"
+    echo "Fetching status from ${host}"
+    ssh ${host} "cd helsesjekk && ./status.sh"
     exit $?
 }
 
@@ -43,7 +43,7 @@ update_from_git() {
     git remote update >/dev/null
     behind=`git status --untracked-files=no | grep 'Your branch is behind'`
 
-    if [[ -n $behind ]]; then
+    if [[ -n ${behind} ]]; then
         echo "Repository is behind, updating from GitHub..."
         git pull -q
     else
