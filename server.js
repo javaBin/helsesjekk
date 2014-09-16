@@ -26,7 +26,7 @@ function lagHtml(ansiText) {
 http.createServer(function(request, response){
     exec('./status.sh', function (error, stdout, stderr) {
         sys.puts(timestamp());
-        response.writeHeader(200, {"Content-Type": "text/html"});
+        response.writeHeader(error ? 500 : 200, {"Content-Type": "text/html"});
         response.write(lagHtml(stdout));
         response.end();
     });
