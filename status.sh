@@ -25,7 +25,7 @@ gather_local() {
             total_status=$(($status + $total_status))
         fi
     done
-    unset component msg status script
+    unset check msg status script
     exit $total_status
 }
 
