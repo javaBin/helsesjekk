@@ -40,6 +40,10 @@ Filer som ikke er eksekverbare vil ignoreres:
 
 `chmod -x components/whatever.sh`
 
+## Hvorfor funker ikke driten på Mac?
+
+Du har sikkert problemer med at `timeout`-kommandoen mangler. Hvis du på liv og død må debugge `status.sh` på Mac (det er jo et Vagrant-oppsett for pokker), så installer `coreutils` og bytt til å bruke `gtimeout` mens du holder på.
+
 ## Jeg lurer på noe annet
 
 Snakk med Kjetil.

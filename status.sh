@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+TIMEOUT=5 # Timeout for each test in seconds
+
 green() { echo -e "\033[32m$1\033[0m"; }
 red() { echo -e "\033[31m$1\033[0m"; }
 
@@ -9,10 +11,12 @@ gather_local() {
         if [ -x ${script} ]; then
             #component=`basename ${script} | cut -d'.' --complement -f2- | tr '[:lower:]' '[:upper:]'`
             component=`basename ${script} | rev | cut -d"." -f2- | rev | tr '[:lower:]' '[:upper:]'`
-            msg=`./${script}`
+            msg=`timeout $TIMEOUT ./${script}`
             status=$?
+
             if [ $status -gt 0 ]; then
                 red "${component}"
+                [ $status -eq 124 ] && msg=$(echo -e "$msg\n[Aborted ${component} after $TIMEOUT seconds]")
             else
                 green "${component}"
             fi
@@ -61,9 +65,3 @@ else
     echo
     gather_local
 fi
-
-# TODO
-# make checks for
-#
-#   - postfix
-#   - cake-redux
