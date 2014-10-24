@@ -7,18 +7,17 @@ red() { echo -e "\033[31m$1\033[0m"; }
 
 gather_local() {
     total_status=0
-    for script in components/*.*; do
+    for script in checks/*.*; do
         if [ -x ${script} ]; then
-            #component=`basename ${script} | cut -d'.' --complement -f2- | tr '[:lower:]' '[:upper:]'`
-            component=`basename ${script} | rev | cut -d"." -f2- | rev | tr '[:lower:]' '[:upper:]'`
+            check=`basename ${script} | rev | cut -d"." -f2- | rev | tr '[:lower:]' '[:upper:]'`
             msg=`timeout $TIMEOUT ./${script}`
             status=$?
 
             if [ $status -gt 0 ]; then
-                red "${component}"
-                [ $status -eq 124 ] && msg=$(echo -e "$msg\n[Aborted ${component} after $TIMEOUT seconds]")
+                red "${check}"
+                [ $status -eq 124 ] && msg=$(echo -e "$msg\n[Aborted ${check} after $TIMEOUT seconds]")
             else
-                green "${component}"
+                green "${check}"
             fi
             if [[ -n ${msg} ]]; then
                 echo "${msg}" | sed 's/^/  /'

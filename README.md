@@ -26,7 +26,7 @@ Hvis du legger til noe med ytterligere avhengigheter, før det opp her.
 
 ## Hvordan lager jeg en ny test?
 
-Lag en ny fil i `components/`. Denne kan være skrevet i hva du vil, men må oppfylle følgende.
+Lag en ny fil i `checks/`. Denne kan være skrevet i hva du vil, men må oppfylle følgende.
 
 - Filen må være eksekverbar.
 - Hvis komponenten som testes er oppe skal returnert statuskode være `0`. Returkode høyere enn `0` indikerer at noe er galt.
@@ -38,7 +38,7 @@ Helsesjekken skal nå oppdage den nye testen og kjøre denne med de andre. Ved �
 
 Filer som ikke er eksekverbare vil ignoreres:
 
-`chmod -x components/whatever.sh`
+`chmod -x checks/whatever.sh`
 
 ## Hvorfor funker ikke driten på Mac?
 
