@@ -28,8 +28,11 @@ else:
     print "Last provisioned: %s" % date_string
     print "Commit: %s" % commit
 
-    data = loads(urlopen("https://api.github.com/repos/javaBin/infrastructure/commits/HEAD").read())
-    remote_commit = data["sha"]
+    try:
+        data = loads(urlopen("https://api.github.com/repos/javaBin/infrastructure/commits/HEAD").read())    
+        remote_commit = data["sha"]
 
-    if remote_commit != commit:
-        print "Might not be up to date! (Latest on GitHub is %s)" % remote_commit
+        if remote_commit != commit:
+            print "Might not be up to date! (Latest on GitHub is %s)" % remote_commit
+    except:
+        print "Unable to get commit hash from GitHub. Sorry."
