@@ -5,7 +5,7 @@ from json import loads
 import requests
 
 try:
-    r = requests.get("http://localhost/ems/server/app-info")
+    r = requests.get("http://localhost:8081/ems/server/app-info")
     if r.status_code >= 400:
         print "Status code %s" % r.status_code
         sys.exit(1)
