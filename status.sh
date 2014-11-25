@@ -16,6 +16,9 @@ gather_local() {
             if [ $status -gt 0 ]; then
                 red "${check}"
                 [ $status -eq 124 ] && msg=$(echo -e "$msg\n[Aborted ${check} after $TIMEOUT seconds]")
+
+                mkdir -p logs
+                echo -e "$(date) ${check} FAILED\n${msg}" >> "logs/$(date +%Y-%m).log"
             else
                 green "${check}"
             fi
