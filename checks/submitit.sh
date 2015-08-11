@@ -2,4 +2,4 @@
 
 . common.sh
 
-check_curl_status "http://127.0.0.1:8080"
+check_curl_status "submitit" "http://127.0.0.1:8080"

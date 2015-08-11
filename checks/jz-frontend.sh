@@ -2,4 +2,4 @@
 
 . common.sh
 
-check_curl_status "http://127.0.0.1"
+check_curl_status "javazone.no" "http://127.0.0.1"
