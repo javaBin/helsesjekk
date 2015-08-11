@@ -2,4 +2,4 @@
 
 . common.sh
 
-check_curl_status "http://127.0.0.1/api/ping"
+check_curl_status "curl http://localhost:9003/healthcheck?pretty=true"
