@@ -4,7 +4,7 @@ function check_curl_status() {
 
     echo "Status code $status"
     
-    if [[ $status -lt 1 || $status -gt 399 ]]; then
+    if [[ $status -lt 1 || $status -gt 299 ]]; then
         exit 1
     fi
 }
