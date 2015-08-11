@@ -1,6 +1,6 @@
 function check_curl_status() {
     url=$1
-    status=$(curl -s -o details/${system}.log -w "%{http_code}" $url)
+    status=$(curl -L -s -o "details/${system}.log" -w "%{http_code}" "${url}")
 
     echo "Status code $status"
     
